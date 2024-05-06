@@ -1,0 +1,50 @@
+.ALPHABET
+- 0-9
+.STATES
+start!
+s_z!
+s_n
+s_n1!
+s_n12!
+s_n12lt9!
+s_n1lt2!
+s_n1lt2x!
+s_n1x!
+s_nx!
+s_nxx!
+s_2!
+s_25!
+s_25lt6!
+s_2lt5!
+s_2lt5x!
+s_2x!
+s_1!
+s_1x!
+s_1xx!
+s_x!
+s_xx!
+.TRANSITIONS
+start           0       s_z
+start           -       s_n
+s_n             1       s_n1
+s_n1            2       s_n12
+s_n12           0-8     s_n12lt9
+s_n1            0 1     s_n1lt2
+s_n1lt2         0-9     s_n1lt2x
+s_n1            3-9     s_n1x
+s_n             2-9     s_nx
+s_nx            0-9     s_nxx
+start           2       s_2
+s_2             5       s_25
+s_25            0-5     s_25lt6
+s_2             0-4     s_2lt5
+s_2lt5          0-9     s_2lt5x
+s_2             6-9     s_2x
+start           1       s_1
+s_1             0-9     s_1x
+s_1x            0-9     s_1xx
+start           3-9     s_x
+s_x             0-9     s_xx
+.INPUT
+-1-1000.EMPTY-129-128-127251252
+2532542552561000

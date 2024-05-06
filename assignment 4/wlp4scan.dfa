@@ -1,0 +1,184 @@
+.ALPHABET
+0-9 a-z A-Z ( ) { } [ ] = ! < > + - * / % , ; &
+.STATES
+start
+0!
+num!
+id!
+r!
+re!
+ret!
+retu!
+retur!
+return!
+i!
+if!
+in!
+int!
+e!
+el!
+els!
+else!
+w!
+wh!
+whi!
+whil!
+while!
+wa!
+wai!
+wain!
+p!
+pr!
+pri!
+prin!
+print!
+printl!
+println!
+n!
+ne!
+new!
+d!
+de!
+del!
+dele!
+delet!
+delete!
+N!
+NU!
+NUL!
+NULL!
+(!
+)!
+{!
+}!
+[!
+]!
+=!
+==!
+!
+!=!
+<!
+<=!
+>!
+>=!
++!
+-!
+*!
+/!
+%!
+,!
+;!
+&!
+.TRANSITIONS
+start           0                       0
+start           1-9                     num
+num             0-9                     num
+start           d                       d
+d               e                       de
+de              l                       del
+del             e                       dele
+dele            t                       delet
+delet           e                       delete
+d               a-d f-z A-Z 0-9         id
+de              a-k m-z A-Z 0-9         id
+del             a-d f-z A-Z 0-9         id
+dele            a-s u-z A-Z 0-9         id
+delet           a-d f-z A-Z 0-9         id
+delete          a-z A-Z 0-9             id
+start           e                       e
+e               l                       el
+el              s                       els
+els             e                       else
+e               a-k m-z A-Z 0-9         id
+el              a-r t-z A-Z 0-9         id
+els             a-d f-z A-Z 0-9         id
+else            a-z A-Z 0-9             id
+start           i                       i
+i               f                       if
+i               n                       in
+in              t                       int
+i               a-e g-m o-z A-Z 0-9     id
+if              a-z A-Z 0-9             id
+in              a-s u-z A-Z 0-9         id
+int             a-z A-Z 0-9             id
+start           n                       n
+n               e                       ne
+ne              w                       new
+n               a-d f-z A-Z 0-9         id
+ne              a-v x-z A-Z 0-9         id
+new             a-z A-Z 0-9             id
+start           N                       N
+N               U                       NU
+NU              L                       NUL
+NUL             L                       NULL
+N               a-z A-T V-Z 0-9         id
+NU              a-z A-K M-Z 0-9         id
+NUL             a-z A-K M-Z 0-9         id
+NULL            a-z A-Z 0-9             id
+start           p                       p
+p               r                       pr
+pr              i                       pri
+pri             n                       prin
+prin            t                       print
+print           l                       printl
+printl          n                       println
+p               a-q s-z A-Z 0-9         id
+pr              a-h j-z A-Z 0-9         id
+pri             a-m o-z A-Z 0-9         id
+prin            a-s u-z A-Z 0-9         id
+print           a-k m-z A-Z 0-9         id
+printl          a-m o-z A-Z 0-9         id
+println         a-z A-Z 0-9             id
+start           r                       r
+r               e                       re
+re              t                       ret
+ret             u                       retu
+retu            r                       retur
+retur           n                       return
+r               a-d f-z A-Z 0-9         id
+re              a-s u-z A-Z 0-9         id
+ret             a-t v-z A-Z 0-9         id
+retu            a-q s-z A-Z 0-9         id
+retur           a-m o-z A-Z 0-9         id
+return          a-z A-Z 0-9             id
+start           w                       w
+w               a                       wa
+wa              i                       wai
+wai             n                       wain
+w               h                       wh
+wh              i                       whi
+whi             l                       whil
+whil            e                       while
+w               b-g i-z A-Z 0-9         id
+wa              a-h j-z A-Z 0-9         id
+wai             a-m o-z A-Z 0-9         id
+wain            a-z A-Z 0-9             id
+wh              a-h j-z A-Z 0-9         id
+whi             a-k m-z A-Z 0-9         id
+whil            a-d f-z A-Z 0-9         id
+while           a-z A-Z 0-9             id
+start           a-c f-h j-m o q s-v x-z A-M O-Z     id
+id              a-z A-Z 0-9                         id
+start           (                   (
+start           )                   )
+start           {                   {
+start           }                   }
+start           [                   [
+start           ]                   ]
+start           =                   =
+=               =                   ==
+start           !                   !
+!               =                   !=
+start           <                   <
+<               =                   <=
+start           >                   >
+>               =                   >=
+start           +                   +
+start           -                   -
+start           *                   *
+start           /                   /
+start           %                   %
+start           ,                   ,
+start           ;                   ;
+start           &                   &
+.INPUT
